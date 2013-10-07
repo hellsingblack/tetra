@@ -26,28 +26,28 @@
                 <div class="gu gu-1of4">
                                     <div class="sidebar">
                     <ul class="nav-stacked">
-                        <li class="h4">
-                            <a href="/tetra/doc/about.html">About</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/about.html">About</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/view.html">View</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/view.html">View</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/controller.html">Controller</a>
-                        <li class="h4">
-                            <a href="/tetra/doc/model.html">Model</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/controller.html">Controller</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/model.html">Model</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/orm.html">ORM</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/orm.html">ORM</a>
                         </li>
                         <!-- <li class="h4">
                             <a href="/tetra/doc/templating.html">Templating</a>
                         </li> -->
-                        <li class="h4">
-                            <a href="/tetra/doc/bootnode.html">Bootnode</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/bootnode.html">Bootnode</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/debugger.html">Debugger</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/debugger.html">Debugger</a>
                         </li>
                     </ul>
                 </div>
@@ -59,12 +59,12 @@
 <span class="subtitle">Concept</span>
 
 <p class="description">
-Bootnode is a simple way to load javascript on the fly. If you have a feature that is not critical to the functioning of the page, you may prefer to load this dependency later rather than including it with the page. Using data attributes directly in the HTML code, Bootnode allows you to declaratively associate a dependency with some user action, deferring its download until this action has been detected.
+    Bootnode is a simple way to load javascript on the fly. If you have a feature that is not critical to the functioning of the page, you may prefer to load this dependency later rather than including it with the page. Using data attributes directly in the HTML code, Bootnode allows you to declaratively associate a dependency with some user action, deferring its download until this action has been detected.
 </p>
 
 <span class="subtitle">Activation</span>
 <p class="description">
-In the tetra configuration, set the enableBootnode parameter to true. This will activate bootnode for all applications.
+    In the tetra configuration, set the enableBootnode parameter to true. This will activate bootnode for all applications.
 </p>
 
 <div class="code">
@@ -76,19 +76,19 @@ tetra.extend({conf:{}})
 <span class="subtitle">Definition in markup</span>
 
 <p class="description">
-Attributes for configuring bootnode must be set on a top-level or containing element of your application interface. There are 3 parameters to set
+    Attributes for configuring bootnode must be set on a top-level or containing element of your application interface. There are 3 parameters to set
 </p>
 <p class="description">
-<b>class="bootnode"</b> : adding 'bootnode' to the element class permits Tetra to find which element is reactive to bootnode actions.
+    <b>class="bootnode"</b> : adding 'bootnode' to the element class permits Tetra to find which element is reactive to bootnode actions.
 </p>
 <p class="description">
     <b>data-event="click"</b> : the event that will trigger the download of the associated dependency. This attribute supports the click, mouseover and focus event type.
 </p>
 <p class="description">
-<b>data-view="appName/viewName"</b> : the path (scope/name) to the view of the associated dependency. This view, along with its own dependencies (controller and models), will be downloaded by Tetra when the data-event action is invoked.
+    <b>data-view="appName/viewName"</b> : the path (scope/name) to the view of the associated dependency. This view, along with its own dependencies (controller and models), will be downloaded by Tetra when the data-event action is invoked.
 </p>
 <p class="description">
-<b>data-comp="compName"</b> : To reduce HTTP requests, we can optionally associate the data-event with a packaged version of our dependency. Replace data-view with data-comp, providing a custom name compName for the packaged JavaScript.
+    <b>data-comp="compName"</b> : To reduce HTTP requests, we can optionally associate the data-event with a packaged version of our dependency. Replace data-view with data-comp, providing a custom name compName for the packaged JavaScript.
 </p>
 
 
@@ -104,8 +104,8 @@ Attributes for configuring bootnode must be set on a top-level or containing ele
 <span class="subtitle">Dependency management system</span>
 
 <p class="description">
-A view depends on one or more controllers, specified in its "use" parameter. Similarly, a controller depends on one or more models. When a bootnode event is invoked, Tetra downloads the view and its
-associated controllers and models. It then initializes each part of the application in the following order: models then controllers then view. Once finished, the data-event action is invoked.
+    A view depends on one or more controllers, specified in its "use" parameter. Similarly, a controller depends on one or more models. When a bootnode event is invoked, Tetra downloads the view and its
+    associated controllers and models. It then initializes each part of the application in the following order: models then controllers then view. Once finished, the data-event action is invoked.
 </p>
                     </div>
                 </div>

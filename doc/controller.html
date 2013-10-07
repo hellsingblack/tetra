@@ -26,28 +26,28 @@
                 <div class="gu gu-1of4">
                                     <div class="sidebar">
                     <ul class="nav-stacked">
-                        <li class="h4">
-                            <a href="/tetra/doc/about.html">About</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/about.html">About</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/view.html">View</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/view.html">View</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/controller.html">Controller</a>
-                        <li class="h4">
-                            <a href="/tetra/doc/model.html">Model</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/controller.html">Controller</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/model.html">Model</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/orm.html">ORM</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/orm.html">ORM</a>
                         </li>
                         <!-- <li class="h4">
                             <a href="/tetra/doc/templating.html">Templating</a>
                         </li> -->
-                        <li class="h4">
-                            <a href="/tetra/doc/bootnode.html">Bootnode</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/bootnode.html">Bootnode</a>
                         </li>
-                        <li class="h4">
-                            <a href="/tetra/doc/debugger.html">Debugger</a>
+                        <li class="h4 man">
+                            <a class="paxs" href="/tetra/doc/debugger.html">Debugger</a>
                         </li>
                     </ul>
                 </div>
@@ -63,21 +63,21 @@ tetra.controller.register(name, Object)
 </div>
 
 <p class="description">
-<b>name</b> The name of the controller. It must be the same as the file name. For example: if you call your controller likeCtrl, the file must be called likeCtrl.ctrl.js.<br>
+    <b>name</b> The name of the controller. It must be the same as the file name. If you call your controller likeCtrl, the file must be called likeCtrl.ctrl.js.<br>
 </p>
 
 <p class="description">
-<b>Object</b> This object configures the controller, and describes view and model listeners and notifiers. A more detailed definition follows.
+    <b>Object</b> This object configures the controller, and describes view and model listeners and notifiers. A more detailed definition follows.
 </p>
 
 <p class="subtitle">Controller configuration</p>
 
 <div class="code">
 <pre>
-{  
-    scope : 'scope name',  
-    use : ['Mymodel', 'OtherModel', ...],   
-    constr : function  
+{
+    scope : 'scope name',
+    use : ['Mymodel', 'OtherModel', ...],
+    constr : function
 }
 </pre>
 </div>
@@ -85,70 +85,70 @@ tetra.controller.register(name, Object)
 <p class="subtitle">Parameters</p>
 
 <p class="description">
-<b>scope</b> The scope acts as a namespace for messages sent by the controller to the view. <br>
+    <b>scope</b> The scope acts as a namespace for messages sent by the controller to the view. <br>
 </p>
 <p class="description">
-<b>use</b> An Array of models used by the controller. If the nested model is a global one, prefix its name with g/ (example: use: ['g/name']).<br>
+    <b>use</b> An Array of models used by the controller. If the nested model is a global one, prefix its name with <b>g/</b>, use: ['g/name']
 </p>
 <p class="description">
-<b>constr</b>  a function returning a controller's public API
+    <b>constr</b>  a function returning a controller's public API
 </p>
 
 <p class="subtitle">Contructor</p>
 
 <div class="code">
 <pre>
-constr : function(me, app, page, orm) { 
-  return {  
+constr : function(me, app, page, orm) {
+  return {
     events : {...},
-    methods : {...}  
+    methods : {...}
   };
 }
 </pre>
 </div>
 
 <p class="description">
-<b>me</b> similar to 'this' in OO JavaScript, this variable gives you access to all attributes of the controller object itself and allows you to define your own functions and attributes<br>
+    <b>me</b> similar to 'this' in OO JavaScript, this variable gives you access to all attributes of the controller object itself and allows you to define your own functions and attributes<br>
 </p>
 <p class="description">
-<b>app</b> the communication pipe to all views in the scope.<br>
+    <b>app</b> the communication pipe to all views in the scope.<br>
 </p>
 <p class="description">
-<b>page</b> the communication pipe to all controllers.<br>
+    <b>page</b> the communication pipe to all controllers.<br>
 </p>
 <p class="description">
-<b>orm</b> object relational model of the core framework. it allows you to create, retrieve, update or delete data objects and synchronize data with the server. It is a total abstraction of ajax calls.
+    <b>orm</b> object relational model of the core framework. it allows you to create, retrieve, update or delete data objects and synchronize data with the server. It is a total abstraction of ajax calls.
 </p>
 
 <p class="subtitle">Events</p>
 
 <div class="code">
 <pre>
-events : {  
-   model : {  
-      'MyModel' : {   
-          'append' : function(obj){...},  
-          'save' : function(obj){...},  
-          'saved' : function(obj){...},  
-           ...  
-       },  
-       ...    
-   },  
-   view : {  
-      'message' : function(data){...},  
-       ...  
-   },  
-   controller : {  
-      'message from page.notify' : function(data){...},  
-       ...  
-   } 
+events : {
+   model : {
+      'MyModel' : {
+          'append' : function(obj){...},
+          'save' : function(obj){...},
+          'saved' : function(obj){...},
+           ...
+       },
+       ...
+   },
+   view : {
+      'message' : function(data){...},
+       ...
+   },
+   controller : {
+      'message from page.notify' : function(data){...},
+       ...
+   }
 }
 </pre>
 </div>
 
 <p class="description">events: callbacks triggered by a model action or a message sent from the view</p>
 
-<p class="description">  
+<p class="description">
     Here is the list of all models change messages :
 </p>
 <p class="description">
